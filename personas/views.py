@@ -5,11 +5,13 @@ from django.shortcuts import get_object_or_404, redirect, render
 from .forms import PersonaForm, RawPersonaForm
 
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views.generic.list import (
     ListView,
     DetailView,
     CreateView,
     UpdateView,
+    DeleteView,
 )
 from .models import Persona
 
@@ -39,6 +41,9 @@ class PersonaUpdateView(UpdateView):
         'edad',
         'donador',
     ]
+class PersonaDeleteView(DeleteView):
+    model = Persona
+    success_url = reverse_lazy('personas:persona-list')
 
 def personaTestView(request):
     obj = Persona.objects.get(id = 1)
