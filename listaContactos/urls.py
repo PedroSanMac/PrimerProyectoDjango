@@ -20,7 +20,7 @@ from inicio.views import (
     primeraView,
     segundaView,
 )
-from personas.views import personaTestView, personaCreateView,
+from personas.views import personaTestView, personaCreateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),

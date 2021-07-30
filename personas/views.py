@@ -1,11 +1,23 @@
+from django import forms
 from personas.models import Persona
 from django.shortcuts import render
+from .forms import PersonaForm
 
 # Create your views here.
 def personaTestView(request):
     obj = Persona.objects.get(id = 1)
     context = {
-        'nombre' : obj.nombres,
-        'edad' : obj.edad,
+        'objeto':obj,
     }
-    return render(request, 'personas/test.html', context)
+    return render(request, 'personas/descripcion.html', context)
+
+def personaCreateView(request):
+    form = PersonaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        form = PersonaForm()
+
+    context = {
+        'form' : form
+    }
+    return render(request,'personas/personasCreate.html', context)
