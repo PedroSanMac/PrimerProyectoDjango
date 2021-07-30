@@ -1,12 +1,15 @@
 from django import forms
 from django.db.models import fields
+from django.http.response import JsonResponse
+from django.views.generic.base import View
+from django.http import HttpResponse
 from personas.models import Persona
 from django.shortcuts import get_object_or_404, redirect, render
 from .forms import PersonaForm, RawPersonaForm
 
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic.list import (
+from django.views.generic import (
     ListView,
     DetailView,
     CreateView,
@@ -45,6 +48,12 @@ class PersonaDeleteView(DeleteView):
     model = Persona
     success_url = reverse_lazy('personas:persona-list')
 
+class PersonaQueryView(View):
+    def get(self, request, *args, **kwargs):
+        queryset = Persona.objects.filter(edad__lte='40')
+        return JsonResponse(list(queryset.values()), safe=False)
+
+#--------------------------------------------------------------------------
 def personaTestView(request):
     obj = Persona.objects.get(id = 1)
     context = {
