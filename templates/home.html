@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Hola mundo desde Django</h1>
+<h2>Con templates</h2>
+<h3>Desde Home</h3>
+{{ request.user }}
+<br>
+{{ request.user.is_authenticated }}
+{% endblock %}

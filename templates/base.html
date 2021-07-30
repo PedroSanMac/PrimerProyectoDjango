@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>codigo para estudiantes desde django</title>
+    </head>
+
+    <body>
+        {% include 'nav.html' %}
+        <h1> Este es un texto base </h1>
+        {% block content %}
+           Reemplazame
+        {% endblock %}
+        <h1>Otra vez texto base</h1>
+    </body>
+</html>
