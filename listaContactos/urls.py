@@ -20,7 +20,7 @@ from inicio.views import (
     primeraView,
     segundaView,
 )
-from personas.views import personaTestView, personaCreateView
+from personas.views import personaTestView, personaCreateView, personasAnotherCreateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,6 +29,8 @@ urlpatterns = [
     path('segunda/', segundaView, name="segunda pagina"),
     path('persona/', personaTestView, name='otro'),
     path('agregar/', personaCreateView, name='CreatePersona'),
+
+    path('anotherAdd', personasAnotherCreateView, name='OtroAgregarPersonas'),
 
 ]
 
