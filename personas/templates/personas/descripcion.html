@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{{nombre}}</h1>
+<h1>{{objeto.nombres}} {{objeto.apellidos}}</h1>
+<h2>{{objeto.edad}}</h2>
 <h2>
-    {%if edad > 40 %}
+    {%if objeto.edad > 40 %}
     debecuidarse del colesterol
     {% else %}
     puede comer lo que quiera
