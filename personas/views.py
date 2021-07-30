@@ -7,6 +7,7 @@ from django.shortcuts import render
 from django.views.generic.list import (
     ListView,
     DetailView,
+    CreateView,
 )
 from .models import Persona
 
@@ -18,6 +19,15 @@ class PersonaListView(ListView):
 class PersonaDetailView(DetailView):
     model = Persona
 
+
+class PersonaCreateView(CreateView):
+    model = Persona
+    fields =[
+        'nombres',
+        'apellidos',
+        'edad',
+        'donador',
+    ]
 
 def personaTestView(request):
     obj = Persona.objects.get(id = 1)
