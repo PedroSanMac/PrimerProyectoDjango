@@ -1,9 +1,10 @@
-from personas.forms import PersonaCreateView
 from personas.models import Persona
 from django.urls import path
 from personas.views import (
     PersonaDetailView,
     PersonaListView,
+    PersonaCreateView,
+    PersonaUpdateView,
  )
 from personas.views import (
     personaTestView,
@@ -24,4 +25,5 @@ urlpatterns =[
     path('', PersonaListView.as_view(), name= 'persona-list'),
     path('<int:pk>/', PersonaDetailView.as_view(), name='persona-detail'),
     path('create/', PersonaCreateView.as_view(), name = 'persona-create'),
+    path('<int:pk>/update/', PersonaUpdateView, name='persona-update'),
 ]

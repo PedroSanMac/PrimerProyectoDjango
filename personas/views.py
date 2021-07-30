@@ -1,4 +1,5 @@
 from django import forms
+from django.db.models import fields
 from personas.models import Persona
 from django.shortcuts import get_object_or_404, redirect, render
 from .forms import PersonaForm, RawPersonaForm
@@ -8,6 +9,7 @@ from django.views.generic.list import (
     ListView,
     DetailView,
     CreateView,
+    UpdateView,
 )
 from .models import Persona
 
@@ -21,6 +23,15 @@ class PersonaDetailView(DetailView):
 
 
 class PersonaCreateView(CreateView):
+    model = Persona
+    fields =[
+        'nombres',
+        'apellidos',
+        'edad',
+        'donador',
+    ]
+
+class PersonaUpdateView(UpdateView):
     model = Persona
     fields =[
         'nombres',
