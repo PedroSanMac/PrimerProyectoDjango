@@ -1,6 +1,6 @@
 from django import forms
 from personas.models import Persona
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 from .forms import PersonaForm, RawPersonaForm
 
 # Create your views here.
@@ -45,3 +45,14 @@ def personasShowObject(request, myID):
         'objeto': obj,
     }
     return render(request, 'personas/descripcion.html', context)
+
+def personasDeleteView(request, myID):
+    obj = get_object_or_404(Persona, id = myID)
+    if request.method == "POST":
+        print("lo borro")
+        obj.delete()
+        return redirect('../')
+    context = {
+        'objeto' = obj,
+    }
+    return render(request, 'personas/personasBorrar.html', context)
