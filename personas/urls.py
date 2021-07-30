@@ -20,9 +20,9 @@ app_name= 'personas'
 urlpatterns =[
     path('agregar/', personaCreateView, name='CreatePersona'),
     path('anotherAdd', personasAnotherCreateView, name='OtroAgregarPersonas'),
-    path('<int:myID>/', personasShowObject, name='browsing'),
+    #path('<int:myID>/', personasShowObject, name='browsing'),
     path('<int:myID>/borrar/', personasDeleteView, name='deleting'),
-    #path('', personasListView, name='listing')
+    path('l/', personasListView, name='listing'),
 
     path('', PersonaListView.as_view(), name= 'persona-list'),
     path('<int:pk>/', PersonaDetailView.as_view(), name='persona-detail'),

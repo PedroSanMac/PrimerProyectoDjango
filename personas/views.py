@@ -21,7 +21,7 @@ from .models import Persona
 # Create your views here.
 class PersonaListView(ListView):
     model = Persona
-    queryset = Persona.objects.filter(edad__lte='18')
+    queryset = Persona.objects.filter(edad__lte='50')
 
 class PersonaDetailView(DetailView):
     model = Persona
@@ -35,6 +35,7 @@ class PersonaCreateView(CreateView):
         'edad',
         'donador',
     ]
+    success_url = reverse_lazy('personas:persona-list')
 
 class PersonaUpdateView(UpdateView):
     model = Persona
