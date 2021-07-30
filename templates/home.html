@@ -4,6 +4,10 @@
 <h2>Con templates</h2>
 <h3>Desde Home</h3>
 {{ request.user }}
+<p>
+    {{ myText }}
+    {{ myNumber }}
+</p>
 <br>
 {{ request.user.is_authenticated }}
 {% endblock %}

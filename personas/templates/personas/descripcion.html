@@ -1,0 +1,12 @@
+{{% extends 'base.html' %}}
+
+{% blobk content %}
+<h1>{{nombre}}</h1>
+<h2>
+    {%if edad > 40 %}
+    debecuidarse del colesterol
+    {% else %}
+    puede comer lo que quiera
+    {% endif %}
+</h2>
+{% endblock %}
