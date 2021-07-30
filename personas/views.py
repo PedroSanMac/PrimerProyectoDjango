@@ -6,11 +6,16 @@ from .forms import PersonaForm, RawPersonaForm
 from django.shortcuts import render
 from django.views.generic.list import (
     ListView,
+    DetailView,
 )
 from .models import Persona
 
 # Create your views here.
 class PersonaListView(ListView):
+    model = Persona
+    queryset = Persona.objects.filter(edad__lte='18')
+
+class PersonaDetailView(DetailView):
     model = Persona
 
 

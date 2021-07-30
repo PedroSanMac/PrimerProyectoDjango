@@ -1,0 +1,16 @@
+{% extends 'base2.html' %}
+{% block title %}
+    Detalle de Personas
+{% endblock %}
+{% block body %}
+<h1>Detalle de Personas</h1>
+<h2>{{ object.apellidos }} / {{ object.nombres }}</h2>
+<p>
+{% if object.donador %}
+    Es
+{% else %}
+    No es
+{% endif %}
+donador de organos.
+</p>
+{% endblock %}

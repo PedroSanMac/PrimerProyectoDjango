@@ -1,5 +1,14 @@
 from django.urls import path
-from personas.views import PersonaListView, personaTestView, personaCreateView, personasAnotherCreateView, personasDeleteView, personasListView, personasShowObject
+from personas.views import (
+    PersonaDetailView,
+    PersonaListView,
+ )
+from personas.views import (
+    personaTestView,
+    personaCreateView,
+    personasAnotherCreateView,
+    personasDeleteView, personasListView, personasShowObject
+)
 
 app_name= 'personas'
 
@@ -11,4 +20,5 @@ urlpatterns =[
     #path('', personasListView, name='listing')
 
     path('', PersonaListView.as_view(), name= 'persona-list'),
+    path('<int:pk>/', PersonaDetailView.as_view(), name='persona-detail'),
 ]
